@@ -1,0 +1,22 @@
+<%= form_with(model: segmentation, local: true) do |form| %>
+  <% if segmentation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(segmentation.errors.count, "error") %> prohibited this segmentation from being saved:</h2>
+
+      <ul>
+      <% segmentation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :query %>
+    <%= form.text_field :query, id: :segmentation_query %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
